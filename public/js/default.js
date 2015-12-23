@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var socket = io();
+var socket = io.connect();
   
 var board,
   game = new Chess(),
