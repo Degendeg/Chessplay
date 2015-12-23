@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var socket = io.connect();
+var socket = window.io.connect({transports:['websocket']});
   
 var board,
   game = new Chess(),
