@@ -1,0 +1,33 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: "Lato", Calibri, Arial, sans-serif;
+	color: #fff;
+	background: gray;
+}
+
+#nav {
+	background-color:#262626;
+	width: 100%;
+	height:50px;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 999;
+}
+
+#container {
+	margin-top: 5%;
+}
+
+#board {
+	width: 500px;
+}
+
+.piece-417db {
+	cursor: pointer;
+}
