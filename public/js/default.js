@@ -84,4 +84,7 @@ var cfg = {
 board = ChessBoard('board', cfg);
 
 updateStatus();
+
+$('#flipOrientationBtn').on('click', board.flip);
+
 });
