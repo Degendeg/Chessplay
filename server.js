@@ -12,8 +12,11 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
 	io.set('transports', ['websocket']);
     console.log('new connection on socket.io');
-	socket.on('move', function(msg) {
-		socket.broadcast.emit('move', msg);
+	socket.on('move', function(mov) {
+		socket.broadcast.emit('move', mov);
+	});
+	socket.on('chat message', function(msg){
+		io.emit('chat message', msg);
 	});
 });
  

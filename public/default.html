@@ -3,26 +3,63 @@
 <head>
 <title>Play chess</title>
 <link rel="stylesheet" type="text/css" href="../../css/chessboard-0.3.0.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../css/default.css">
 </head>
 <body>
 
-<div id="nav"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Play chess</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Create game</a></li>
+        <li><a href="#">Join game</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<div id="container">
-<center>
-	<h1>Chess</h1>
-	<div id="board"></div>
-	<h3>Status: <span id="status"></span></h3>
-	<button id="flipOrientationBtn">Flip orientation</button>
-</center>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="starter-template">
+        <h1>Chess</h1>
+        <div id="board"></div>
+        <h3>Status: <span id="status"></span></h3>
+        <button id="flipOrientationBtn" class="btn btn-info">Flip orientation</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="chatDiv">
+        <div id="messageDiv">
+          <form action="" class="chatForm">
+            <input id="msgInput" autocomplete="off" placeholder="Type here.." />
+            <button class="chatBtn">Chat</button>
+          </form>
+		  <ul id="messages"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Scripts -->
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="js/chess.min.js"></script>
 <script src="js/chessboard-0.3.0.min.js"></script>
 <script src="js/default.js"></script>
+
 </body>
 </html>
