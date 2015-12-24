@@ -1,8 +1,11 @@
+html {
+	overflow-y: scroll;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
 	overflow-x: hidden;
-	overflow-y: hidden;
 }
 
 body {
@@ -21,12 +24,12 @@ body {
 	z-index: 999;
 }
 
-.margin-top-10 {
-	margin-top: 5%;
+.margin-top-6 {
+	margin-top: 6%;
 }
 
 #board {
-	width: 500px;
+	width: 100%;
 }
 
 .piece-417db {
@@ -38,7 +41,7 @@ body {
 #messageDiv {
   width: 50%;
   height: 50%;
-  margin-top: 10%;
+  margin-top: 6%;
   margin-left: 45%;
 }
 
