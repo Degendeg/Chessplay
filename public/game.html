@@ -20,24 +20,28 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Play chess</h3>
+        <h3 class="text-muted">Play game</h3>
       </div>
 
-      <div class="jumbotron">
-        <h1>Chess is lovely.</h1>
-        <p>
-          Chess is a two-player board game played on a chessboard, a checkered gameboard with 64 squares arranged in an eight-by-eight grid. Chess is played by millions of people worldwide in homes, urban parks, clubs, online, correspondence, and in tournaments.
-          In recent years, chess has become part of some school curricula.
-          <i>Reference: <a href="https://en.wikipedia.org/wiki/Chess" target="_blank">Wikipedia</a></i>
-        </p>
-      </div>
+      <div id="board"></div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <button id="flipOrientationBtn" class="btn btn-info pull-right">Flip orientation</button>
+          <h3>Status: <span id="status"></span></h3>
+        </li>
+      </ul>
 
-      <div class="form-group">
-        <label for="usr">Name:</label>
-        <input type="text" class="form-control" id="usr">
-        <br />
-        <button class="btn btn-info" id="playBtn">Play</button>
-      </div>
+      <h1>Chat</h1>
+      <form action="">
+        <div class="input-group">
+          <input type="text" class="form-control" id="msgInput" autocomplete="off" placeholder="Type here..">
+          <span class="input-group-btn">
+				<button class="btn btn-default chatBtn">Send</button>
+			  </span>
+        </div>
+      </form>
+      <ul id="messages"></ul>
+      <br />
 
       <footer class="footer">
         <p>&copy; Sebastian Degerman - 2015</p>
@@ -51,7 +55,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/chess.min.js"></script>
     <script src="js/chessboard-0.3.0.min.js"></script>
-    <script src="js/default.js"></script>
+    <script src="js/game.js"></script>
 
   </body>
 
