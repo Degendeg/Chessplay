@@ -95,6 +95,11 @@ body {
 
 /* Custom css */
 
+.logo {
+    width: 7%;
+    height: auto;
+}
+
 #board {
   width: 700px;
 }
