@@ -4,6 +4,8 @@ $(document).ready(function() {
     transports: ['websocket']
   });
 
+  var playerColor = localStorage.getItem('_chosenColor');
+
   // chat code
   $('form').submit(function() {
     socket.emit('chat message', $('#msgInput').val());
@@ -95,6 +97,7 @@ $(document).ready(function() {
   var cfg = {
     draggable: true,
     position: 'start',
+    orientation: playerColor,
     onDragStart: onDragStart,
     onDrop: onDrop,
     onSnapEnd: onSnapEnd
@@ -102,7 +105,4 @@ $(document).ready(function() {
   board = ChessBoard('board', cfg);
 
   updateStatus();
-
-  $('#flipOrientationBtn').on('click', board.flip);
-
 });

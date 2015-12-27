@@ -1,6 +1,8 @@
 $(document).ready(function() {
-	$("#playBtn").click(function() {
-		window.location.replace("/game.html");
+	var chosenColor;
+	$('.color-btn').click(function() {
+		chosenColor = $(this).attr("value");
+		localStorage.setItem('_chosenColor', chosenColor);
 	});
 	
 	$(".color-picker-group button").on("click", function() {
