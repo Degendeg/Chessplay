@@ -108,12 +108,18 @@ body {
   width: 700px;
 }
 
-#playBtn a {
-	color: #000;
+a {
+	color: #777;
 	text-decoration: none;
 }
 
-#playBtn a:hover {
+a:hover {
+	color: #777;
+	text-decoration: none;
+}
+
+#playBtn a {
+	color: #000;
 	text-decoration: none;
 }
 
