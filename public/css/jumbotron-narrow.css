@@ -108,8 +108,13 @@ body {
   width: 700px;
 }
 
-#flipOrientationBtn {
-  margin-top: 2%;
+#playBtn a {
+	color: #000;
+	text-decoration: none;
+}
+
+#playBtn a:hover {
+	text-decoration: none;
 }
 
 .piece-417db {
