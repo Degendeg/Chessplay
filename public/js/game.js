@@ -26,6 +26,21 @@ $(document).ready(function() {
     game = new Chess(),
     statusEl = $('#status');
 
+  var removeGreySquares = function() {
+    $('#board .square-55d63').css('background', '');
+  };
+
+  var greySquare = function(square) {
+    var squareEl = $('#board .square-' + square);
+
+    var background = '#a9a9a9';
+    if (squareEl.hasClass('black-3c85d') === true) {
+      background = '#696969';
+    }
+
+    squareEl.css('background', background);
+  };
+
   // do not pick up pieces if the game is over
   // only pick up pieces for the side to move
   var onDragStart = function(source, piece, position, orientation) {
@@ -37,6 +52,7 @@ $(document).ready(function() {
   };
 
   var onDrop = function(source, target) {
+    removeGreySquares();
     // see if the move is legal
     var move = game.move({
       from: source,
@@ -49,6 +65,29 @@ $(document).ready(function() {
     if (move === null) return 'snapback';
 
     updateStatus();
+  };
+
+  var onMouseoverSquare = function(square, piece) {
+    // get list of possible moves for this square
+    var moves = game.moves({
+      square: square,
+      verbose: true
+    });
+
+    // exit if there are no moves available for this square
+    if (moves.length === 0) return;
+
+    // highlight the square they moused over
+    greySquare(square);
+
+    // highlight the possible squares for this piece
+    for (var i = 0; i < moves.length; i++) {
+      greySquare(moves[i].to);
+    }
+  };
+
+  var onMouseoutSquare = function(square, piece) {
+    removeGreySquares();
   };
 
   socket.on('move', function(mov) {
@@ -100,9 +139,23 @@ $(document).ready(function() {
     orientation: playerColor,
     onDragStart: onDragStart,
     onDrop: onDrop,
+    onMouseoutSquare: onMouseoutSquare,
     onSnapEnd: onSnapEnd
   };
   board = ChessBoard('board', cfg);
 
   updateStatus();
+
+  $('#enableHighlightBtn').click(function() {
+    cfg.onMouseoverSquare = onMouseoverSquare;
+    $("#disableHighlightBtn").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  $('#disableHighlightBtn').click(function() {
+    delete cfg.onMouseoverSquare;
+    $("#enableHighlightBtn").removeClass("active");
+    $(this).addClass("active");
+  });
+
 });
