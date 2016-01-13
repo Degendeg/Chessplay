@@ -177,6 +177,11 @@ a:hover {
   color: #000;
 }
 
+#messages .chat-li {
+  padding: 5px 10px;
+  background: #bfbfbf;
+}
+
 #messages li {
   padding: 5px 10px;
   background: #d9d9d9;

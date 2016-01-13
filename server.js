@@ -6,20 +6,23 @@ var port = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
- res.sendFile(__dirname + '/public/default.html');
+  res.sendFile(__dirname + '/public/default.html');
 });
 
 io.on('connection', function(socket) {
-	io.set('transports', ['websocket']);
-    console.log('new connection on socket.io');
-	socket.on('move', function(mov) {
-		socket.broadcast.emit('move', mov);
-	});
-	socket.on('chat message', function(msg){
-		io.emit('chat message', msg);
-	});
+  io.set('transports', ['websocket']);
+  console.log('new connection on socket.io');
+  socket.on('move', function(mov) {
+    socket.broadcast.emit('move', mov);
+  });
+  socket.on('chat message', function(msg, usr) {
+    io.emit('chat message', {
+      username: usr,
+      message: msg
+    });
+  });
 });
- 
-server.listen(port, function () {
+
+server.listen(port, function() {
   console.log('Server listening at port %d', port);
 });

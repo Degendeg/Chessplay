@@ -5,10 +5,11 @@ $(document).ready(function() {
   });
 
   var playerColor = localStorage.getItem('_chosenColor');
+  var username = localStorage.getItem('_username');
 
   // chat code
   $('form').submit(function() {
-    socket.emit('chat message', $('#msgInput').val());
+    socket.emit('chat message', $('#msgInput').val(), username);
     $('#msgInput').val('');
     return false;
   });
@@ -19,7 +20,7 @@ $(document).ready(function() {
   });
   // send messages by appending new li working as message
   socket.on('chat message', function(msg) {
-    $('#messages').append($('<li>').text(msg));
+    $('#messages').prepend($('<li class="chat-li">').text(msg.username).append($('<li>').text(msg.message)));
   });
 
   var board,

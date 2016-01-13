@@ -1,5 +1,9 @@
 $(document).ready(function() {
+
 	var chosenColor;
+	var $username = $('#username').focus();
+	var username;
+	
 	$('.color-btn').click(function() {
 		chosenColor = $(this).attr("value");
 		localStorage.setItem('_chosenColor', chosenColor);
@@ -14,4 +18,10 @@ $(document).ready(function() {
 			$('#playBtn').attr("href", "game.html").css('color','black');
 		}
 	});
+	
+	$('#playBtn').click(function() {
+		username = $username.val().trim();
+		localStorage.setItem('_username', username + ':');
+	});
+	
 });
