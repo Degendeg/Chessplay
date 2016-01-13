@@ -7,6 +7,13 @@ $(document).ready(function() {
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
 
+  // prevent f5 during game
+  function disableF5(e) { 
+  if ((e.which || e.keyCode) == 116)
+	e.preventDefault(); 
+  };
+  $(document).on("keydown", disableF5);
+  
   // chat code
   $('form').submit(function() {
     socket.emit('chat message', $('#msgInput').val(), username);
