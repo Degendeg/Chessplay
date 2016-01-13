@@ -109,6 +109,10 @@ body {
   width: 100%;
 }
 
+#playerJoin {
+	display: none;
+}
+
 a {
   color: #777;
   text-decoration: none;

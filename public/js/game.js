@@ -29,6 +29,11 @@ $(document).ready(function() {
   socket.on('chat message', function(msg) {
     $('#messages').prepend($('<li class="chat-li">').text(msg.username).append($('<li>').text(msg.message)));
   });
+  
+	// Whenever the server emits 'player joined', show it to the other player
+	socket.on('player joined', function (data) {
+		$('#playerJoin').text('A player has joined the game.').show().delay(2000).fadeOut();
+	});
 
   var board,
     game = new Chess(),

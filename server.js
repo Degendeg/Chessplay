@@ -21,6 +21,7 @@ io.on('connection', function(socket) {
       message: msg
     });
   });
+  socket.broadcast.emit('player joined');
 });
 
 server.listen(port, function() {
