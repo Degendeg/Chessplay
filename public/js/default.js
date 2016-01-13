@@ -5,6 +5,8 @@ $(document).ready(function() {
 		localStorage.setItem('_chosenColor', chosenColor);
 	});
 	
+	$('#playBtn').removeAttr('href').css('color','grey');
+	
 	$(".color-picker-group button").on("click", function() {
 		$(".color-btn").removeClass("active");
 		$(this).addClass("active");
@@ -12,6 +14,4 @@ $(document).ready(function() {
 			$('#playBtn').attr("href", "game.html").css('color','black');
 		}
 	});
-	
-	$('#playBtn').removeAttr('href').css('color','grey');
 });
