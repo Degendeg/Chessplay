@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
-
+  
   // prevent f5 during game
   function disableF5(e) { 
   if ((e.which || e.keyCode) == 116)
@@ -32,7 +32,7 @@ $(document).ready(function() {
   
 	// Whenever the server emits 'player joined', show it to the other player
 	socket.on('player joined', function (data) {
-		$('#playerJoin').text('A player has joined the game.').show().delay(2000).fadeOut();
+		$('#playerJoin').show().delay(2000).fadeOut();
 	});
 
   var board,
@@ -142,7 +142,11 @@ $(document).ready(function() {
       // check?
       if (game.in_check() === true) {
         status += ', ' + moveColor + ' is in check';
+		$('#checkAlert').text('Check!').css('font-weight', 'bold').css('text-align','center').show();
       }
+	  else {
+		$('#checkAlert').hide();
+	  }
     }
 
     statusEl.html(status);

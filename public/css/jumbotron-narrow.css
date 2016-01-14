@@ -99,6 +99,11 @@ body {
 
 /* Custom css */
 
+.alert-danger {
+  background-color: #DAA2A2 !important;
+  border-color: #DAA2A2 !important;
+}
+
 .logo {
   width: 25% !important;
   height: auto !important;
@@ -110,6 +115,10 @@ body {
 }
 
 #playerJoin {
+	display: none;
+}
+
+#checkAlert {
 	display: none;
 }
 
