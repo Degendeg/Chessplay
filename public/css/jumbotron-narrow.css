@@ -10,6 +10,7 @@ body {
   background: #f2f2f2;
 }
 
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
 .header,
@@ -19,12 +20,14 @@ body {
   padding-left: 15px;
 }
 
+
 /* Custom page header */
 
 .header {
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
 }
+
 
 /* Make the masthead heading the same height as the navigation */
 
@@ -34,6 +37,7 @@ body {
   line-height: 40px;
 }
 
+
 /* Custom page footer */
 
 .footer {
@@ -41,6 +45,7 @@ body {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
+
 
 /* Customize container */
 
@@ -54,8 +59,6 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
@@ -67,6 +70,7 @@ body {
   font-size: 21px;
 }
 
+
 /* Supporting marketing content */
 
 .marketing {
@@ -76,6 +80,7 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
 
 /* Responsive: Portrait tablets and up */
 
@@ -97,6 +102,7 @@ body {
   }
 }
 
+
 /* Custom css */
 
 input[type='text'],
@@ -105,20 +111,18 @@ textarea {
   font-size: 16px;
 }
 
-  #readMoreBtn:after {
-    font-family: "Glyphicons Halflings";
-    content: "\e114";
-    margin-left: 15px;
-	vertical-align: middle;
-  }
-  /* Icon when the collapsible content is hidden */
-  #readMoreBtn.collapsed:after {
-    content: "\e080";
-  }
+#readMoreBtn:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e114";
+  margin-left: 15px;
+  vertical-align: middle;
+}
 
-.alert-danger {
-  background-color: #DAA2A2 !important;
-  border-color: #DAA2A2 !important;
+
+/* Icon when the collapsible content is hidden */
+
+#readMoreBtn.collapsed:after {
+  content: "\e080";
 }
 
 .logo {
@@ -132,11 +136,13 @@ textarea {
 }
 
 #playerJoin {
-	display: none;
+  display: none;
 }
 
 #checkAlert {
-	display: none;
+  display: none;
+  background-color: #DAA2A2 !important;
+  border-color: #DAA2A2 !important;
 }
 
 a {
@@ -157,6 +163,7 @@ a:hover {
 .piece-417db {
   cursor: pointer;
 }
+
 
 /* Chat */
 
