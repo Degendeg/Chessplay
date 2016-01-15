@@ -118,9 +118,6 @@ textarea {
   vertical-align: middle;
 }
 
-
-/* Icon when the collapsible content is hidden */
-
 #readMoreBtn.collapsed:after {
   content: "\e080";
 }
@@ -137,12 +134,6 @@ textarea {
 
 #playerJoin {
   display: none;
-}
-
-#checkAlert {
-  display: none;
-  background-color: #DAA2A2 !important;
-  border-color: #DAA2A2 !important;
 }
 
 a {
