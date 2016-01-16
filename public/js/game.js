@@ -7,12 +7,10 @@ $(document).ready(function() {
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
   
-  // prevent f5 during game
-  function disableF5(e) { 
-  if ((e.which || e.keyCode) == 116)
-	e.preventDefault(); 
-  };
-  $(document).on("keydown", disableF5);
+    // Prevent user from leaving directly
+	$(window).bind('beforeunload', function(){
+		return 'There is a game in progress! Are you sure?';
+	});
   
   // chat code
   $('form').submit(function() {
