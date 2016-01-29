@@ -140,21 +140,11 @@ $(document).ready(function() {
       // check?
       if (game.in_check() === true) {
         status += ', ' + moveColor + ' is in check';
-		// show red border on black king when checked
-        if (game.turn() === 'b') {
-          $("img[src='img/chesspieces/wikipedia/bK.png']").parent('div').css('border', '2px solid red');
-          $("img[src='img/chesspieces/wikipedia/wK.png']").parent('div').css('border', '');
-        } 
-		// show red border on white king when checked
-		if (game.turn() === 'w') {
-          $("img[src='img/chesspieces/wikipedia/wK.png']").parent('div').css('border', '2px solid red');
-          $("img[src='img/chesspieces/wikipedia/bK.png']").parent('div').css('border', '');
-        }
+		$('#checkAlert').text('Check on ' + moveColor.toLowerCase() + ' king!' ).show();
       }
-	  // no check? remove borders
+	  // no check?
 	  else {
-		  $("img[src='img/chesspieces/wikipedia/bK.png']").parent('div').css('border', '');
-		  $("img[src='img/chesspieces/wikipedia/wK.png']").parent('div').css('border', '');
+		$('#checkAlert').fadeOut();
 	  }
     }
 

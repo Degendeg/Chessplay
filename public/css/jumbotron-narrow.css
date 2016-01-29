@@ -136,6 +136,10 @@ textarea {
   display: none;
 }
 
+#checkAlert {
+  display: none;
+}
+
 a {
   color: #777;
   text-decoration: none;
