@@ -7,24 +7,29 @@ $(document).ready(function() {
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
   var theme = localStorage.getItem('_theme');
-  var whSquares = localStorage.getItem('_whiteSquares');
-  var blSquares = localStorage.getItem('_blackSquares');
   
-    // Color pickers
+    // Color picker
     $("#whSq").spectrum({
         color: "#e6e6e6"
     });
-        
+       
+    // Color picker
     $("#blSq").spectrum({
         color: "#706161"
+    });
+    
+    // Load the colors for the chessboard
+    $(window).bind("load", function() {
+       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
+       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
     });
 
     // Save the color and set it for chessboard
     $('#saveColorsBtn').click(function() {
        localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
        localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
-       $('#board .white-1e1d7').css('background-color', whSquares);
-       $('#board .black-3c85d').css('background-color', blSquares);  
+       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
+       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
     });
     
     // Reset chessboard color to default

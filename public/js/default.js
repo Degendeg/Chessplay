@@ -61,7 +61,7 @@ $(document).ready(function() {
 		localStorage.setItem('_username', username + ':');
 	});
 	
-    // Settings
+  // Settings
     
   // If localStorage theme is dark, set the theme
   if (theme == "dark") {
