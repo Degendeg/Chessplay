@@ -6,6 +6,37 @@ $(document).ready(function() {
 
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
+  var theme = localStorage.getItem('_theme');
+  
+  // Settings
+  if (theme == "dark") {
+  	$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
+	$('body').css('background', '#464545');
+	$('.chatBtn').css('border', '1px solid white');
+	$('#msgInput').css('background', '#817e7e');
+  }
+  if (theme == "default") {
+	$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+	$('body').css('background', '#f2f2f2');
+	$('.chatBtn').css('border', '');
+	$('#msgInput').css('background', '#fff');
+  }
+  
+  	$('#defaultThemeBtn').click(function() {
+		$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+		$('body').css('background', '#f2f2f2');
+		$('.chatBtn').css('border', '');
+		$('#msgInput').css('background', '#fff');
+		localStorage.setItem('_theme', 'default');
+	});
+	
+	$('#darkThemeBtn').click(function() {
+		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
+		$('body').css('background', '#464545');
+		$('.chatBtn').css('border', '1px solid white');
+		$('#msgInput').css('background', '#817e7e');
+		localStorage.setItem('_theme', 'dark');
+	});
   
     // Prevent user from leaving directly
 	$(window).bind('beforeunload', function(){

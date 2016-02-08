@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    var theme = localStorage.getItem('_theme');
 	var chosenColor;
 	var $username = $('#username').focus();
 	var username;
@@ -58,5 +59,39 @@ $(document).ready(function() {
 		username = $username.val().trim();
 		localStorage.setItem('_username', username + ':');
 	});
+	
+    // Settings
+	$('#defaultThemeBtn').click(function() {
+		$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+		$('body').css('background', '#f2f2f2');
+		$('.color-btn').css('border', '');
+		$('.jumbotron').css('background', '#d9d9d9');
+		$('#username').css('background', '#fff');
+		localStorage.setItem('_theme', 'default');
+	});
+	
+	$('#darkThemeBtn').click(function() {
+		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
+		$('body').css('background', '#464545');
+		$('.color-btn').css('border', '1px solid white');
+		$('.jumbotron').css('background', '#817e7e');
+		$('#username').css('background', '#817e7e');
+		localStorage.setItem('_theme', 'dark');
+	});
+	
+  if (theme == "dark") {
+		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
+		$('body').css('background', '#464545');
+		$('.color-btn').css('border', '1px solid white');
+		$('.jumbotron').css('background', '#817e7e');
+		$('#username').css('background', '#817e7e');
+  }
+  if (theme == "default") {
+		$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+		$('body').css('background', '#f2f2f2');
+		$('.color-btn').css('border', '');
+		$('.jumbotron').css('background', '#d9d9d9');
+		$('#username').css('background', '#fff');
+  }
 	
 });

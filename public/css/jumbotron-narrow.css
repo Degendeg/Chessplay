@@ -1,6 +1,6 @@
 /* Space out content a bit */
 
-html {
+body {
   overflow-y: scroll;
 }
 
@@ -104,6 +104,15 @@ body {
 
 
 /* Custom css */
+
+.darkTheme {
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5); /*dim the background*/
+}
+
+#settingsModal {
+  margin-top: 5%;
+}
 
 input[type='text'],
 input[type='number'],

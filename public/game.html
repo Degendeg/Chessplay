@@ -32,6 +32,7 @@
 			<li><a href="https://en.wikipedia.org/wiki/Rules_of_chess" target="_blank">Learn</a></li>
 			<li class="active"><a href="#">Game</a></li>
 			<li><a href="mailto:sebbed89@gmail.com">Contact</a></li>
+			<li><a href="#" data-toggle="modal" data-target="#settingsModal"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
 		  </ul>
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -68,6 +69,31 @@
       </form>
       <ul id="messages"></ul>
       <br />
+	  
+	  	<!-- Settings modal -->
+		<div id="settingsModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Settings</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="btn-group" role="group" aria-label="...">
+					<p>Themes:</p>
+					<button type="button" class="btn btn-default" id="defaultThemeBtn" >Default theme &#9898;</button>
+					<button type="button" class="btn btn-default" id="darkThemeBtn" >Dark theme &#9899;</button>
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
 
       <footer class="footer">
         <p>&copy; Sebastian Degerman - 2015</p>
