@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../css/chessboard-0.3.0.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/jumbotron-narrow.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -51,10 +52,6 @@
           <div class="well">
 			<h3>Status: <span id="status"></span></h3>
 		  </div>
-		  <div class="btn-group" role="group" aria-label="...">
-		  <button class="btn btn-default" id="enableHighlightBtn">Enable highlighting</button>
-		  <button class="btn btn-default" id="disableHighlightBtn">Disable highlighting</button>
-		  </div>
         </li>
       </ul>
 
@@ -86,6 +83,15 @@
 					<button type="button" class="btn btn-default" id="defaultThemeBtn" >Default theme &#9898;</button>
 					<button type="button" class="btn btn-default" id="darkThemeBtn" >Dark theme &#9899;</button>
 				</div>
+                <hr />
+				<div class="btn-group" role="group" aria-label="...">
+					<p>Board color:</p>
+                    White squares: <input type='text' id="whSq" />
+                    Black squares: <input type='text' id="blSq" />
+                    <br /><br />
+                    <button id="saveColorsBtn">Save changes</button>
+                    <button id="resetColorsBtn">Reset to default</button>
+				</div>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -104,6 +110,7 @@
     <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/chess.min.js"></script>
     <script src="js/chessboard-0.3.0.min.js"></script>

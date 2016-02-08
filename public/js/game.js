@@ -1,20 +1,47 @@
 $(document).ready(function() {
 
+  // Global variables
   var socket = window.io.connect({
     transports: ['websocket']
   });
-
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
   var theme = localStorage.getItem('_theme');
+  var whSquares = localStorage.getItem('_whiteSquares');
+  var blSquares = localStorage.getItem('_blackSquares');
   
-  // Settings
+    // Color pickers
+    $("#whSq").spectrum({
+        color: "#e6e6e6"
+    });
+        
+    $("#blSq").spectrum({
+        color: "#706161"
+    });
+
+    // Save the color and set it for chessboard
+    $('#saveColorsBtn').click(function() {
+       localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
+       localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
+       $('#board .white-1e1d7').css('background-color', whSquares);
+       $('#board .black-3c85d').css('background-color', blSquares);  
+    });
+    
+    // Reset chessboard color to default
+    $('#resetColorsBtn').click(function() {
+        $('#board .white-1e1d7').css('background-color', '#f0d9b5');
+        $('#board .black-3c85d').css('background-color', '#b58863'); 
+    });  
+    
+  // If localStorage theme is dark, set the theme
   if (theme == "dark") {
   	$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
 	$('body').css('background', '#464545');
 	$('.chatBtn').css('border', '1px solid white');
 	$('#msgInput').css('background', '#817e7e');
   }
+    
+  // If localStorage theme is default, set the theme
   if (theme == "default") {
 	$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 	$('body').css('background', '#f2f2f2');
@@ -22,6 +49,7 @@ $(document).ready(function() {
 	$('#msgInput').css('background', '#fff');
   }
   
+    // Set default theme
   	$('#defaultThemeBtn').click(function() {
 		$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 		$('body').css('background', '#f2f2f2');
@@ -30,6 +58,7 @@ $(document).ready(function() {
 		localStorage.setItem('_theme', 'default');
 	});
 	
+    // Set default theme
 	$('#darkThemeBtn').click(function() {
 		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
 		$('body').css('background', '#464545');
@@ -68,21 +97,6 @@ $(document).ready(function() {
     game = new Chess(),
     statusEl = $('#status');
 
-  var removeGreySquares = function() {
-    $('#board .square-55d63').css('background', '');
-  };
-
-  var greySquare = function(square) {
-    var squareEl = $('#board .square-' + square);
-
-    var background = '#a9a9a9';
-    if (squareEl.hasClass('black-3c85d') === true) {
-      background = '#696969';
-    }
-
-    squareEl.css('background', background);
-  };
-
   // do not pick up pieces if the game is over
   // only pick up pieces for the side to move
   // only allow white to move white(s) and vice versa
@@ -96,7 +110,6 @@ $(document).ready(function() {
   };
 
   var onDrop = function(source, target) {
-    removeGreySquares();
     // see if the move is legal
     var move = game.move({
       from: source,
@@ -131,7 +144,7 @@ $(document).ready(function() {
   };
 
   var onMouseoutSquare = function(square, piece) {
-    removeGreySquares();
+    //removeGreySquares();
   };
 
   socket.on('move', function(mov) {
@@ -194,17 +207,5 @@ $(document).ready(function() {
   board = ChessBoard('board', cfg);
 
   updateStatus();
-
-  $('#enableHighlightBtn').click(function() {
-    cfg.onMouseoverSquare = onMouseoverSquare;
-    $("#disableHighlightBtn").removeClass("active");
-    $(this).addClass("active");
-  });
-
-  $('#disableHighlightBtn').click(function() {
-    delete cfg.onMouseoverSquare;
-    $("#enableHighlightBtn").removeClass("active");
-    $(this).addClass("active");
-  });
 
 });
