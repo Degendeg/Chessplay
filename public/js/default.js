@@ -63,6 +63,36 @@ $(document).ready(function() {
 	
   // Settings
     
+    // Color picker
+    $("#whSq").spectrum({
+        color: "#e6e6e6"
+    });
+       
+    // Color picker
+    $("#blSq").spectrum({
+        color: "#706161"
+    });
+    
+    // Load the colors for the chessboard
+    $(window).bind("load", function() {
+       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
+       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
+    });
+
+    // Save the color and set it for chessboard
+    $('#saveColorsBtn').click(function() {
+       localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
+       localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
+       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
+       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
+    });
+    
+    // Reset chessboard color to default
+    $('#resetColorsBtn').click(function() {
+        $('#board .white-1e1d7').css('background-color', '#f0d9b5');
+        $('#board .black-3c85d').css('background-color', '#b58863'); 
+    }); 
+    
   // If localStorage theme is dark, set the theme
   if (theme == "dark") {
 		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
