@@ -81,6 +81,8 @@ $(document).ready(function() {
 
     // Save the color and set it for chessboard
     $('#saveColorsBtn').click(function() {
+	   localStorage.removeItem("_whiteSquares");
+	   localStorage.removeItem("_blackSquares");
        localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
        localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
        $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
@@ -89,6 +91,8 @@ $(document).ready(function() {
     
     // Reset chessboard color to default
     $('#resetColorsBtn').click(function() {
+	    localStorage.removeItem("_whiteSquares");
+	    localStorage.removeItem("_blackSquares");
         $('#board .white-1e1d7').css('background-color', '#f0d9b5');
         $('#board .black-3c85d').css('background-color', '#b58863'); 
     }); 
