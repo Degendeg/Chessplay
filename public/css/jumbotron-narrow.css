@@ -105,6 +105,11 @@ body {
 
 /* Custom css */
 
+.margin-left {
+    display: inline-block;
+    margin-left: 2%;
+}
+
 #settingsModal {
   margin-top: 5%;
 }
