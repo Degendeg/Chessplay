@@ -7,80 +7,80 @@ $(document).ready(function() {
   var playerColor = localStorage.getItem('_chosenColor');
   var username = localStorage.getItem('_username');
   var theme = localStorage.getItem('_theme');
-  
-    // Color picker
-    $("#whSq").spectrum({
-        color: "#e6e6e6"
-    });
-       
-    // Color picker
-    $("#blSq").spectrum({
-        color: "#706161"
-    });
-    
-    // Load the colors for the chessboard
-    $(window).bind("load", function() {
-       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
-       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
-    });
 
-    // Save the color and set it for chessboard
-    $('#saveColorsBtn').click(function() {
-	   localStorage.removeItem("_whiteSquares");
-	   localStorage.removeItem("_blackSquares");
-       localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
-       localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
-       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
-       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
-    });
-    
-    // Reset chessboard color to default
-    $('#resetColorsBtn').click(function() {
-		localStorage.removeItem("_whiteSquares");
-	    localStorage.removeItem("_blackSquares");
-        $('#board .white-1e1d7').css('background-color', '#f0d9b5');
-        $('#board .black-3c85d').css('background-color', '#b58863'); 
-    });  
-    
+  // Color picker
+  $("#whSq").spectrum({
+    color: "#e6e6e6"
+  });
+
+  // Color picker
+  $("#blSq").spectrum({
+    color: "#706161"
+  });
+
+  // Load the colors for the chessboard
+  $(window).bind("load", function() {
+    $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
+    $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));
+  });
+
+  // Save the color and set it for chessboard
+  $('#saveColorsBtn').click(function() {
+    localStorage.removeItem("_whiteSquares");
+    localStorage.removeItem("_blackSquares");
+    localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
+    localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
+    $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
+    $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));
+  });
+
+  // Reset chessboard color to default
+  $('#resetColorsBtn').click(function() {
+    localStorage.removeItem("_whiteSquares");
+    localStorage.removeItem("_blackSquares");
+    $('#board .white-1e1d7').css('background-color', '#f0d9b5');
+    $('#board .black-3c85d').css('background-color', '#b58863');
+  });
+
   // If localStorage theme is dark, set the theme
   if (theme == "dark") {
-  	$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
-	$('body').css('background', '#464545');
-	$('.chatBtn').css('border', '1px solid white');
-	$('#msgInput').css('background', '#817e7e');
+    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://bootswatch.com/darkly/bootstrap.min.css');
+    $('body').css('background', '#464545');
+    $('.chatBtn').css('border', '1px solid white');
+    $('#msgInput').css('background', '#817e7e');
   }
-    
+
   // If localStorage theme is default, set the theme
   if (theme == "default") {
-	$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-	$('body').css('background', '#f2f2f2');
-	$('.chatBtn').css('border', '');
-	$('#msgInput').css('background', '#fff');
+    $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+    $('body').css('background', '#f2f2f2');
+    $('.chatBtn').css('border', '');
+    $('#msgInput').css('background', '#fff');
   }
-  
-    // Set default theme
-  	$('#defaultThemeBtn').click(function() {
-		$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-		$('body').css('background', '#f2f2f2');
-		$('.chatBtn').css('border', '');
-		$('#msgInput').css('background', '#fff');
-		localStorage.setItem('_theme', 'default');
-	});
-	
-    // Set default theme
-	$('#darkThemeBtn').click(function() {
-		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
-		$('body').css('background', '#464545');
-		$('.chatBtn').css('border', '1px solid white');
-		$('#msgInput').css('background', '#817e7e');
-		localStorage.setItem('_theme', 'dark');
-	});
-  
-    // Prevent user from leaving directly
-	$(window).bind('beforeunload', function(){
-		return 'There is a game in progress! Are you sure?';
-	});
-  
+
+  // Set default theme
+  $('#defaultThemeBtn').click(function() {
+    $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+    $('body').css('background', '#f2f2f2');
+    $('.chatBtn').css('border', '');
+    $('#msgInput').css('background', '#fff');
+    localStorage.setItem('_theme', 'default');
+  });
+
+  // Set default theme
+  $('#darkThemeBtn').click(function() {
+    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://bootswatch.com/darkly/bootstrap.min.css');
+    $('body').css('background', '#464545');
+    $('.chatBtn').css('border', '1px solid white');
+    $('#msgInput').css('background', '#817e7e');
+    localStorage.setItem('_theme', 'dark');
+  });
+
+  // Prevent user from leaving directly
+  $(window).bind('beforeunload', function() {
+    return 'There is a game in progress! Are you sure?';
+  });
+
   // chat code
   $('form').submit(function() {
     socket.emit('chat message', $('#msgInput').val(), username);
@@ -96,11 +96,11 @@ $(document).ready(function() {
   socket.on('chat message', function(msg) {
     $('#messages').prepend($('<li class="chat-li">').text(msg.username).append($('<li>').text(msg.message)));
   });
-  
-	// Whenever the server emits 'player joined', show it to the other player
-	socket.on('player joined', function (data) {
-		$('#playerJoin').show().delay(2000).fadeOut();
-	});
+
+  // Whenever the server emits 'player joined', show it to the other player
+  socket.on('player joined', function(data) {
+    $('#playerJoin').show().delay(2000).fadeOut();
+  });
 
   var board,
     game = new Chess(),
@@ -113,7 +113,7 @@ $(document).ready(function() {
     if (game.game_over() === true ||
       (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
       (game.turn() === 'b' && piece.search(/^w/) !== -1) ||
-	  (game.turn() !== playerColor[0])) {
+      (game.turn() !== playerColor[0])) {
       return false;
     }
   };
@@ -142,18 +142,6 @@ $(document).ready(function() {
 
     // exit if there are no moves available for this square
     if (moves.length === 0) return;
-
-    // highlight the square they moused over
-    greySquare(square);
-
-    // highlight the possible squares for this piece
-    for (var i = 0; i < moves.length; i++) {
-      greySquare(moves[i].to);
-    }
-  };
-
-  var onMouseoutSquare = function(square, piece) {
-    //removeGreySquares();
   };
 
   socket.on('move', function(mov) {
@@ -193,12 +181,12 @@ $(document).ready(function() {
       // check?
       if (game.in_check() === true) {
         status += ', ' + moveColor + ' is in check';
-		$('#checkAlert').text('Check on ' + moveColor.toLowerCase() + ' king!' ).show();
+        $('#checkAlert').text('Check on ' + moveColor.toLowerCase() + ' king!').show();
       }
-	  // no check?
-	  else {
-		$('#checkAlert').fadeOut();
-	  }
+      // no check?
+      else {
+        $('#checkAlert').fadeOut();
+      }
     }
 
     statusEl.html(status);
@@ -210,7 +198,6 @@ $(document).ready(function() {
     orientation: playerColor,
     onDragStart: onDragStart,
     onDrop: onDrop,
-    onMouseoutSquare: onMouseoutSquare,
     onSnapEnd: onSnapEnd
   };
   board = ChessBoard('board', cfg);
