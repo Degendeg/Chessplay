@@ -105,6 +105,12 @@ body {
 
 /* Custom css */
 
+.color-btn {
+    border: 0;
+    width: 100%;
+    border-radius: 0;
+}
+
 .margin-left {
     display: inline-block;
     margin-left: 2%;

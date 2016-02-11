@@ -46,22 +46,26 @@ $(document).ready(function() {
 		localStorage.setItem('_chosenColor', chosenColor);
 	});
 	
-	$('#playBtn').removeAttr('href').css('opacity','0.5');
-	
-	$(".color-picker-group button").on("click", function() {
+	$(".color-btn").click(function(e) {
 		$(".color-btn").removeClass("active");
-		$(this).addClass("active");
-		if ($(this).hasClass('active') == true) {
-			$('#playBtn').attr("href", "game.html").css('color','white').css('opacity','1');
-		}
+		$(e.target).addClass("active");
 	});
+    
+    $('#playBtn').prop('disabled', true);
+    
+    $('.color-btn').click(function() {
+        if( $('#username').val().length > 0 && $('.color-btn').hasClass('active') ) {
+            $('#playBtn').prop('disabled', false);
+        }
+    });
 	
 	$('#playBtn').click(function() {
+        window.location = "game.html";
 		username = $username.val().trim();
 		localStorage.setItem('_username', username + ':');
 	});
 	
-  // Settings
+    // Settings
     
     // Color picker
     $("#whSq").spectrum({
