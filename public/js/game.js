@@ -101,6 +101,11 @@ $(document).ready(function() {
   socket.on('player joined', function(data) {
     $('#playerJoin').show().delay(2000).fadeOut();
   });
+  
+  // Whenever the server emits 'player disconnected', show it to the other player
+  socket.on('player disconnected', function(data) {
+    $('#playerDisc').show().delay(3000).fadeOut();
+  });
 
   var board,
     game = new Chess(),

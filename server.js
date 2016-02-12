@@ -22,6 +22,9 @@ io.on('connection', function(socket) {
     });
   });
   socket.broadcast.emit('player joined');
+  socket.on('disconnect', function() {
+    socket.broadcast.emit('player disconnected');
+  });
 });
 
 server.listen(port, function() {
