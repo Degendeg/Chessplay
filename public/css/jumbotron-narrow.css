@@ -140,6 +140,10 @@ textarea {
   display: none;
 }
 
+#playerDisc {
+  display: none;
+}
+
 #checkAlert {
   display: none;
 }
