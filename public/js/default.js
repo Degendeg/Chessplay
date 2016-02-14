@@ -10,7 +10,7 @@ $(document).ready(function() {
 	'"When you see a good move, look for a better one." (Emanuel Lasker)',
 	'"Nothing excites jaded Grandmasters more than a theoretical novelty." (Dominic Lawson)',
 	'"The Pin is mightier than the sword." (Fred Reinfeld)',
-	'"We cannot resist the fascination of sacrifice, since a passion for sacrifices is part of a Chessplayer’s nature." (Rudolf Spielman) ',
+	'"We cannot resist the fascination of sacrifice, since a passion for sacrifices is part of a Chessplayers nature." (Rudolf Spielman)',
 	'"All I want to do, ever, is just play Chess." (Bobby Fischer)',
 	'"A win by an unsound combination, however showy, fills me with artistic horror." (Wilhelm Steinitz)',
 	'"The chessboard is the world, the pieces are the phenomena of the Universe, the rules of the game are what we call the laws of Nature and the player on the other side is hidden from us." (Thomas Huxley)',
