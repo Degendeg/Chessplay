@@ -3,7 +3,7 @@ $(document).ready(function() {
     // Global variables
     var theme = localStorage.getItem('_theme');
 	var chosenColor;
-	var $username = $('#username').focus();
+	var $username = $('#username').click().focus();
 	var username;
 	var textArray = 
 	[
