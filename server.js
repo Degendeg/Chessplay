@@ -21,6 +21,9 @@ io.on('connection', function(socket) {
       message: msg
     });
   });
+  socket.on('undo', function(und) {
+    io.emit('undo', und);
+  });
   socket.broadcast.emit('player joined');
   socket.on('disconnect', function() {
     socket.broadcast.emit('player disconnected');

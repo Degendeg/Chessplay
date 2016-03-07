@@ -131,6 +131,7 @@ $(document).ready(function() {
       promotion: 'q' // NOTE: always promote to a queen for example simplicity
     });
     socket.emit('move', move);
+	$('#takeBackBtn').prop('disabled', false);
 
     // illegal move
     if (move === null) return 'snapback';
@@ -154,7 +155,20 @@ $(document).ready(function() {
     board.position(game.fen());
     updateStatus();
   });
-
+  
+  	var und = game.undo();
+	
+	$('#takeBackBtn').click(function() {
+	socket.emit('undo', und);
+	$(this).prop('disabled', true);
+	});
+  
+  socket.on('undo', function() {
+	game.undo();
+	board.position(game.fen());
+	updateStatus();
+  });
+  
   // update the board position after the piece snap 
   // for castling, en passant, pawn promotion
   var onSnapEnd = function() {
