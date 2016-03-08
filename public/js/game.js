@@ -156,15 +156,26 @@ $(document).ready(function() {
     updateStatus();
   });
   
-  	var und = game.undo();
+	var und = game.undo();
+	var res = game.reset();
 	
 	$('#takeBackBtn').click(function() {
 	socket.emit('undo', und);
 	$(this).prop('disabled', true);
 	});
+	
+	$('#resetBtn').click(function() {
+	socket.emit('reset', res);
+	});
   
   socket.on('undo', function() {
 	game.undo();
+	board.position(game.fen());
+	updateStatus();
+  });
+  
+  socket.on('reset', function() {
+	game.reset();
 	board.position(game.fen());
 	updateStatus();
   });

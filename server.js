@@ -24,6 +24,9 @@ io.on('connection', function(socket) {
   socket.on('undo', function(und) {
     io.emit('undo', und);
   });
+  socket.on('reset', function(res) {
+    io.emit('reset', res);
+  });
   socket.broadcast.emit('player joined');
   socket.on('disconnect', function() {
     socket.broadcast.emit('player disconnected');

@@ -43,12 +43,12 @@ $(document).ready(function() {
 	
 	$('#playBtn').prop('disabled', true);
 	
-	$('.color-radio').change(function() {
+	$('.colorBtn').click(function(e) {
+		$('.colorBtn').removeClass('chosen');
+		$(e.target).addClass('chosen');
 		chosenColor = $(this).attr("value");
 		localStorage.setItem('_chosenColor', chosenColor);
-        if( $('#username').val().length > 0 && $('.color-radio').val().length > 0 ) {
-            $('#playBtn').prop('disabled', false);
-        }
+		$('#playBtn').prop('disabled', false);
 	});
 	
 	$('#playBtn').click(function() {

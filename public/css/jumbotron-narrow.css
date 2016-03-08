@@ -105,6 +105,19 @@ body {
 
 /* Custom css */
 
+a.colorBtn {
+	cursor: pointer;
+	font-weight: bold !important;
+}
+
+a.colorBtn:hover {
+	background: #cccccc !important;
+}
+
+.chosen {
+	background: #cccccc;
+}
+
 .margin-left {
     display: inline-block;
     margin-left: 2%;
