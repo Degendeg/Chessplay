@@ -107,10 +107,11 @@ body {
 
 .dropdown-menu {
 	left: -75px !important;
+	padding: 5px !important;
 }
 
 a.colorBtn {
-	cursor: pointer;
+	cursor: pointer !important;
 	font-weight: bold !important;
 }
 
@@ -119,7 +120,7 @@ a.colorBtn:hover {
 }
 
 .chosen {
-	background: #cccccc;
+	background: #cccccc !important;
 }
 
 .margin-left {
