@@ -41,10 +41,8 @@ $(document).ready(function() {
     //do this every 10 secs
     window.setInterval(generateQuote, 10000);
     
-    $('#randomBtn').click(function () {
-        $.get( "https://randomuser.me/api/", function(data) {
-            $("#username").val(data.results[0].user.username);
-        });
+    $('#anonBtn').click(function () {
+        $("#username").val("Anonymous");
     });
 	
 	$('#playBtn').prop('disabled', true);
