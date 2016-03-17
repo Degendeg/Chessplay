@@ -79,56 +79,46 @@ $(document).ready(function() {
        $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
     });
 
-    // Save the color and set it for chessboard
-    $('#saveColorsBtn').click(function() {
-	   localStorage.removeItem("_whiteSquares");
-	   localStorage.removeItem("_blackSquares");
-       localStorage.setItem('_whiteSquares', $("#whSq").spectrum('get').toHexString());
-       localStorage.setItem('_blackSquares', $("#blSq").spectrum('get').toHexString());
-       $('#board .white-1e1d7').css('background-color', localStorage.getItem('_whiteSquares'));
-       $('#board .black-3c85d').css('background-color', localStorage.getItem('_blackSquares'));  
-    });
-    
-    // Reset chessboard color to default
-    $('#resetColorsBtn').click(function() {
-	    localStorage.removeItem("_whiteSquares");
-	    localStorage.removeItem("_blackSquares");
-        $('#board .white-1e1d7').css('background-color', '#f0d9b5');
-        $('#board .black-3c85d').css('background-color', '#b58863'); 
-    }); 
-    
+  // Reset chessboard color to default
+  $('#resetColorsBtn').click(function() {
+    localStorage.removeItem("_whiteSquares");
+    localStorage.removeItem("_blackSquares");
+    $('#board .white-1e1d7').css('background-color', '#f0d9b5');
+    $('#board .black-3c85d').css('background-color', '#b58863');
+  });
+
   // If localStorage theme is dark, set the theme
   if (theme == "dark") {
-		$('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
-		$('body').css('background', '#464545');
-		$('.jumbotron').css('background', '#817e7e');
-		$('#username').css('background', '#817e7e');
+    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://bootswatch.com/darkly/bootstrap.min.css');
+    $('body').css('background', '#464545');
+    $('button').css('border', '1px solid white');
+    $('#msgInput').css('background', '#817e7e');
   }
-    
+
   // If localStorage theme is default, set the theme
   if (theme == "default") {
-		$('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-		$('body').css('background', '#f2f2f2');
-		$('.jumbotron').css('background', '#d9d9d9');
-		$('#username').css('background', '#fff');
+    $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+    $('body').css('background', '#f2f2f2');
+	$('button').css('border', '');
+    $('#msgInput').css('background', '#fff');
   }
-    
-    // Set default theme
-    $('#defaultThemeBtn').click(function() {
-        $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-        $('body').css('background', '#f2f2f2');
-        $('.jumbotron').css('background', '#d9d9d9');
-        $('#username').css('background', '#fff');
-        localStorage.setItem('_theme', 'default');
-    });
-	
-    // Set dark theme
-    $('#darkThemeBtn').click(function() {
-        $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href','https://bootswatch.com/darkly/bootstrap.min.css');
-        $('body').css('background', '#464545');
-        $('.jumbotron').css('background', '#817e7e');
-        $('#username').css('background', '#817e7e');
-        localStorage.setItem('_theme', 'dark');
-    });
+
+  // Set default theme
+  $('#defaultThemeBtn').click(function() {
+    $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+    $('body').css('background', '#f2f2f2');
+	$('button').css('border', '');
+    $('#msgInput').css('background', '#fff');
+    localStorage.setItem('_theme', 'default');
+  });
+
+  // Set dark theme
+  $('#darkThemeBtn').click(function() {
+    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://bootswatch.com/darkly/bootstrap.min.css');
+    $('body').css('background', '#464545');
+	$('button').css('border', '1px solid white');
+    $('#msgInput').css('background', '#817e7e');
+    localStorage.setItem('_theme', 'dark');
+  });
 	
 });
