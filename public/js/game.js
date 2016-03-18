@@ -46,7 +46,7 @@ $(document).ready(function() {
   if (theme == "dark") {
     $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://bootswatch.com/darkly/bootstrap.min.css');
     $('body').css('background', '#464545');
-    $('.chatBtn').css('border', '1px solid white');
+    $('button').css('border', '1px solid white');
     $('#msgInput').css('background', '#817e7e');
   }
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
   if (theme == "default") {
     $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
     $('body').css('background', '#f2f2f2');
-    $('.chatBtn').css('border', '');
+	$('button').css('border', '');
     $('#msgInput').css('background', '#fff');
   }
 
@@ -62,16 +62,16 @@ $(document).ready(function() {
   $('#defaultThemeBtn').click(function() {
     $('link[href="https://bootswatch.com/darkly/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
     $('body').css('background', '#f2f2f2');
-    $('.chatBtn').css('border', '');
+	$('button').css('border', '');
     $('#msgInput').css('background', '#fff');
     localStorage.setItem('_theme', 'default');
   });
 
-  // Set default theme
+  // Set dark theme
   $('#darkThemeBtn').click(function() {
     $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://bootswatch.com/darkly/bootstrap.min.css');
     $('body').css('background', '#464545');
-    $('.chatBtn').css('border', '1px solid white');
+	$('button').css('border', '1px solid white');
     $('#msgInput').css('background', '#817e7e');
     localStorage.setItem('_theme', 'dark');
   });
