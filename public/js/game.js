@@ -47,7 +47,7 @@ $(document).ready(function() {
 
   // If localStorage theme is dark, set the theme
   if (theme == "dark") {
-    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cerulean/bootstrap.min.css');
+    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/slate/bootstrap.min.css');
     $('body').css('background', '#464545');
     $('button').css('border', '1px solid white');
     $('#msgInput').css('background', '#817e7e');
@@ -72,7 +72,7 @@ $(document).ready(function() {
 
   // Set dark theme
   $('#darkThemeBtn').click(function() {
-    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cerulean/bootstrap.min.css');
+    $('link[href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"]').attr('href', 'https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/slate/bootstrap.min.css');
     $('body').css('background', '#464545');
 	$('button').css('border', '1px solid white');
     $('#msgInput').css('background', '#817e7e');
