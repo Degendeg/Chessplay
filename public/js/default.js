@@ -31,6 +31,9 @@ $(document).ready(function() {
     
     //generate a quote from the start
     generateQuote();
+	
+	//Get current year
+	$('.thisYear').text((new Date()).getFullYear());
     
     //select a random string from the array, but empty it first
     function generateQuote() {

@@ -17,6 +17,9 @@ $(document).ready(function() {
   $("#blSq").spectrum({
     color: "#706161"
   });
+  
+  //Get current year
+  $('.thisYear').text((new Date()).getFullYear());
 
   // Load the colors for the chessboard
   $(window).bind("load", function() {
