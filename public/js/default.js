@@ -15,7 +15,7 @@ $(document).ready(function() {
 	'"A win by an unsound combination, however showy, fills me with artistic horror." (Wilhelm Steinitz)',
 	'"The chessboard is the world, the pieces are the phenomena of the Universe, the rules of the game are what we call the laws of Nature and the player on the other side is hidden from us." (Thomas Huxley)',
 	'"Strategy requires thought, tactics require observation." (Max Euwe)', 
-	'"I don’t believe in psychology. I believe in good moves." (Bobby Fischer)',
+	'"I do not believe in psychology. I believe in good moves." (Bobby Fischer)',
 	'"A passed Pawn increases in strength as the number of pieces on the board diminishes." (Capablanca)',
 	'"Even the laziest King flees wildly in the face of a double check!" (Aaron Nimzowitsch)', 
 	'"Chess is a fairy tale of 1001 blunders." (Savielly Tartakower)',
