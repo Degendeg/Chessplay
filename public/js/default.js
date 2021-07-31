@@ -26,7 +26,8 @@ $(document).ready(function() {
 	'"Of Chess it has been said that life is not long enough for it, but that is the fault of life, not Chess." (William Ewart Napier)',
 	'"I have added these principles to the law: get the Knights into action before both Bishops are developed." (Emanuel Lasker)', 
 	'"Chess is as much a mystery as women." (Purdy)',
-    '"There are two types of sacrifices: correct ones and mine." (Mikhail Tal)'
+    '"There are two types of sacrifices: correct ones and mine." (Mikhail Tal)',
+	'"Every chess master was once a beginner." (Irving Chernev)'
 	];
     
     //generate a quote from the start
@@ -64,8 +65,6 @@ $(document).ready(function() {
 		localStorage.setItem('_username', username + ':');
 	});
 	
-    // Settings
-    
     // Color picker
     $("#whSq").spectrum({
         color: "#e6e6e6"
