@@ -164,7 +164,7 @@ $(document).ready(function() {
 	
 	$('#takeBackBtn').click(function() {
 	socket.emit('undo', und);
-	$(this).prop('disabled', true);
+	// $(this).prop('disabled', true);
 	});
 	
 	$('#resetBtn').click(function() {
